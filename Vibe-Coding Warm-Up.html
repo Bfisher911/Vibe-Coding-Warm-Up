@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1: Vibe-Coding Warm-Up Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-step {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .flow-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF6B6B, #FFD166);
+        }
+        .card-bg {
+            background-color: #ffffff;
+        }
+        .text-main { color: #1A202C; }
+        .text-subtle { color: #4A5568; }
+        .text-accent { color: #FF6B6B; }
+        .border-accent { border-color: #FFD166; }
+    </style>
+</head>
+<body class="bg-gray-50 text-main">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text gradient-bg">Lab 1: Vibe-Coding Warm-Up</h1>
+            <p class="text-lg text-subtle mt-4 max-w-3xl mx-auto">An infographic guide to your first hands-on experience with cloud-native AI development tools.</p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="prerequisites">
+                <h2 class="text-3xl font-bold text-center mb-8">Part 0: Pre-Flight Checklist</h2>
+                <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 border-l-4 border-accent">
+                    <p class="text-subtle mb-6 text-center">Ensure your development environment is ready by installing these essential tools. This is the foundation for all the tasks ahead.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-4 font-bold text-accent">Tool</th>
+                                    <th class="p-4 font-bold text-accent">macOS Command</th>
+                                    <th class="p-4 font-bold text-accent">Windows Source</th>
+                                    <th class="p-4 font-bold text-accent">Verification</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-4 font-semibold">Python 3.11+</td>
+                                    <td class="p-4 font-mono text-sm">brew install python@3.11</td>
+                                    <td class="p-4"><a href="#" class="text-blue-600 hover:underline">python.org</a></td>
+                                    <td class="p-4 font-mono text-sm">python3 --version</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-4 font-semibold">Node.js LTS</td>
+                                    <td class="p-4 font-mono text-sm">brew install node</td>
+                                    <td class="p-4"><a href="#" class="text-blue-600 hover:underline">nodejs.org</a></td>
+                                    <td class="p-4 font-mono text-sm">node --version</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-4 font-semibold">Git</td>
+                                    <td class="p-4 font-mono text-sm">brew install git</td>
+                                    <td class="p-4"><a href="#" class="text-blue-600 hover:underline">gitforwindows.org</a></td>
+                                    <td class="p-4 font-mono text-sm">git --version</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-semibold">GitHub Desktop</td>
+                                    <td class="p-4" colspan="2"><a href="#" class="text-blue-600 hover:underline">desktop.github.com</a></td>
+                                    <td class="p-4">GUI Install</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="core-tasks">
+                <h2 class="text-3xl font-bold text-center mb-8">Core Tasks: Command & Control</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="card-bg rounded-xl shadow-lg p-6 flow-step">
+                        <h3 class="font-bold text-xl text-accent mb-4">A: Install Gemini CLI</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">1.</span><code class="bg-gray-100 p-2 rounded-md w-full">pip install --upgrade gemini-cli</code></div>
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">2.</span><code class="bg-gray-100 p-2 rounded-md w-full">gemini auth login</code></div>
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">3.</span><p class="text-subtle">Follow browser prompts to allow access.</p></div>
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">✓</span><p class="font-semibold">Result: "Authentication succeeded"</p></div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-xl shadow-lg p-6 flow-step">
+                        <h3 class="font-bold text-xl text-accent mb-4">B: Explore Cloud Code</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">1.</span><p>Install "Cloud Code" extension in VS Code.</p></div>
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">2.</span><p>Create New App: <span class="font-semibold">Node.js HelloWorld</span>.</p></div>
+                             <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">3.</span><p>Click <span class="font-semibold">Run</span> to build & deploy with Docker.</p></div>
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">✓</span><p class="font-semibold">Result: "Hello World" page in browser.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="card-bg rounded-xl shadow-lg p-6 flow-step">
+                        <h3 class="font-bold text-xl text-accent mb-4">F: Build with Firebase</h3>
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">1.</span><code class="bg-gray-100 p-2 rounded-md w-full">firebase login</code></div>
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">2.</span><code class="bg-gray-100 p-2 rounded-md w-full">firebase projects:create</code></div>
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">3.</span><p>Open Firebase Studio & use AI Assist to generate a site.</p></div>
+                            <div class="flex items-start"><span class="font-bold text-lg text-accent mr-3">✓</span><p class="font-semibold">Result: Live preview URL of your AI-built page.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="tool-exploration">
+                <h2 class="text-3xl font-bold text-center mb-8">Part E: A 5-Minute Tour of the AI Coding Landscape</h2>
+                <p class="text-subtle mb-10 text-center max-w-3xl mx-auto">This lab introduces you to a variety of tools, each with a different approach to AI-assisted development. The goal is awareness, not mastery. See what's possible.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card-bg rounded-xl shadow-lg p-6 text-center flow-step">
+                        <p class="text-5xl mb-3">💬</p>
+                        <h3 class="font-bold text-lg text-accent">Jules CLI</h3>
+                        <p class="text-sm text-subtle">A command-line interface for conversational AI tasks.</p>
+                    </div>
+                    <div class="card-bg rounded-xl shadow-lg p-6 text-center flow-step">
+                        <p class="text-5xl mb-3">✒️</p>
+                        <h3 class="font-bold text-lg text-accent">Cursor</h3>
+                        <p class="text-sm text-subtle">An AI-native code editor for inline generation and editing.</p>
+                    </div>
+                    <div class="card-bg rounded-xl shadow-lg p-6 text-center flow-step">
+                        <p class="text-5xl mb-3">🏄</p>
+                        <h3 class="font-bold text-lg text-accent">Windsurf</h3>
+                        <p class="text-sm text-subtle">A multi-model chat sidebar inside your existing IDE.</p>
+                    </div>
+                    <div class="card-bg rounded-xl shadow-lg p-6 text-center flow-step">
+                        <p class="text-5xl mb-3">❤️</p>
+                        <h3 class="font-bold text-lg text-accent">Lovable</h3>
+                        <p class="text-sm text-subtle">A playground for generating auto-runnable code blocks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="submission">
+                <h2 class="text-3xl font-bold text-center mb-8">Part G: Submission Deliverables</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card-bg rounded-xl shadow-lg p-6">
+                        <h3 class="font-bold text-xl text-accent mb-4">What to Submit</h3>
+                        <p class="text-subtle mb-6">Compile these four items into a single submission on your course portal. This demonstrates your completion of the core lab activities.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><span class="text-accent font-bold text-2xl mr-3">1.</span><div><h4 class="font-semibold">Gemini Output</h4><p class="text-sm text-subtle">The first 5 lines from the `gemini --help` command.</p></div></li>
+                            <li class="flex items-start"><span class="text-accent font-bold text-2xl mr-3">2.</span><div><h4 class="font-semibold">Vibe-Coding Log</h4><p class="text-sm text-subtle">A table summarizing your one-sentence learning for each tool explored.</p></div></li>
+                            <li class="flex items-start"><span class="text-accent font-bold text-2xl mr-3">3.</span><div><h4 class="font-semibold">Firebase Deliverable</h4><p class="text-sm text-subtle">The prompt you used and the final preview-channel URL.</p></div></li>
+                            <li class="flex items-start"><span class="text-accent font-bold text-2xl mr-3">4.</span><div><h4 class="font-semibold">Reflection</h4><p class="text-sm text-subtle">A 100-word reflection on which tool felt the fastest and why.</p></div></li>
+                        </ul>
+                    </div>
+                    <div class="card-bg rounded-xl shadow-lg p-6 flex flex-col justify-center items-center">
+                         <h3 class="font-bold text-xl text-accent mb-4 text-center">Lab Task Distribution</h3>
+                         <p class="text-subtle text-center mb-6">This chart shows a conceptual breakdown of where your time is spent in this lab.</p>
+                        <div class="chart-container h-[250px] md:h-[300px]">
+                            <canvas id="tasksChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 pt-8 border-t border-gray-200">
+            <p class="text-subtle text-sm">&copy; 2025 AI Lab Starter. This infographic is a visual representation of the Module 1 Lab Assignment.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth) => {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).length > maxWidth) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = currentLine ? currentLine + ' ' + word : word;
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const ctx = document.getElementById('tasksChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Setup & Prerequisites', 'CLI Tool Interaction', 'Tool Exploration & Awareness', 'Creative Synthesis (Firebase)'],
+                datasets: [{
+                    label: 'Time Allocation',
+                    data: [25, 40, 15, 20],
+                    backgroundColor: [
+                        '#06D6A0',
+                        '#FFD166',
+                        '#118AB2',
+                        '#EF476F',
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Inter',
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        },
+                        backgroundColor: '#1A202C',
+                        titleFont: { family: 'Inter', size: 14, weight: 'bold' },
+                        bodyFont: { family: 'Inter', size: 12 },
+                        padding: 12,
+                        cornerRadius: 8,
+                        displayColors: false
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+    </script>
+
+</body>
+</html>
